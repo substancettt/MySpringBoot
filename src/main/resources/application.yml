@@ -1,0 +1,40 @@
+connection:
+    username: admin
+    remoteAddress: 192.168.1.1
+    
+logging:
+    level.root: INFO
+    level.org.springframework: INFO
+    level.org.apache: ERROR
+    level.com.wellshang.spring: ERROR
+    level.com.wellshang.spring.worker: DEBUG
+    level.com.wellshang.spring.service: DEBUG
+    level.com.wellshang.spring.test: DEBUG
+    level.com.wellshang.spring.controllers: DEBUG
+    level.com.wellshang.data.service.impl: DEBUG
+
+taskExecutor:
+    corePoolSize: 16
+    maxPoolSize: 1024
+    queueCapacity: 5000
+    keepAliveSeconds: 3600
+    monitoringPeriod: 10
+
+server:
+    port: 80
+
+spring:
+    data:
+        mongodb:
+            host: ShangHost1
+            port: 27017
+            username: test
+            password: abc123
+            database: test
+            authenticationDatabase: test
+    activemq:
+        broker-url: tcp://ShangHost1:61616
+
+weiChat:
+    tocken: weixin
+    apiKey: 4acdb83305c9b7f622e5472a26758e53

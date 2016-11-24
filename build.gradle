@@ -1,0 +1,47 @@
+buildscript {
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+  
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    mavenLocal()
+    mavenCentral()
+}
+  
+dependencies {
+    compile 'javax.mail:mail:1.4.7'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.3.3.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb:1.3.3.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-redis:1.3.3.RELEASE'
+    compile 'org.apache.httpcomponents:httpclient:4.5.2'
+    compile 'org.springframework:spring-jms'
+    compile 'org.springframework.integration:spring-integration-jms'
+    compile 'org.apache.activemq:activemq-pool'
+    compile 'com.google.code.gson:gson'
+    compile 'com.thoughtworks.xstream:xstream:1.4.8'
+    compile 'dom4j:dom4j:1.6.1'
+    compile 'org.springframework.boot:spring-boot-starter'
+    compile 'org.springframework:spring-jms'
+    compile 'org.apache.activemq:activemq-broker'
+    testCompile 'junit:junit'
+    testCompile 'org.springframework.boot:spring-boot-starter-test:1.3.3.RELEASE'
+}
+
+task copyJars(type:Copy){
+    from configurations.runtime
+    into 'libs'
+}
